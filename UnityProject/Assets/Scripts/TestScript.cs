@@ -12,4 +12,8 @@ public class TestScript : MonoBehaviour {
 	void Update () {
 		//Test Comment in Update
 	}
+
+	public void TestCaseOne(){
+		//Test Function
+	}
 }
