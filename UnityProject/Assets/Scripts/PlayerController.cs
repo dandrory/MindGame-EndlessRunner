@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 	public bool lockX = false;
 	public bool lockY = false;
 	public bool lockZ = false;
+	public int currentLane = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +19,6 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 distanceToTarget = new Vector3 ();
-
 		if (!lockX) {
 			distanceToTarget.x = target.x - transform.position.x;
 		}
@@ -42,10 +42,18 @@ public class PlayerController : MonoBehaviour {
 			
 
 		if (Input.GetKeyDown (KeyCode.A)) {
-			target = new Vector3(-1,0,0);
+			if(currentLane != -2){
+			
+			currentLane = currentLane -1;
+			target = new Vector3(currentLane,0,0);
+			}
+
 		}
 		if (Input.GetKeyDown (KeyCode.D)) {
-			target = new Vector3(1,0,0);
+			if(currentLane != 2){
+			currentLane = currentLane +1;
+			target = new Vector3(currentLane,0,0);
+			}
 		}
 	}
 }	
