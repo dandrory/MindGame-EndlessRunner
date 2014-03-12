@@ -221,7 +221,7 @@ pip-log.txt
 
 
 Temp/
-Library/
+/UnityProject/Library/
 obj/
 *.svd
  
