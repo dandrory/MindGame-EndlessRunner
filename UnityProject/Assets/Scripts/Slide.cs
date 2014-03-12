@@ -10,6 +10,6 @@ public class Slide : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	// je djerherwiargergrgse
 	}
 }
