@@ -220,33 +220,25 @@ pip-log.txt
 ############
 
 
-Temp/
-/UnityProject/Library/
-obj/
-*.svd
+##################
+# Unity ignores:
+#
+# !!! WARNING !!!
+#
+# … you MUST convert Unity to using Metafiles *before* you start using this
+#  .gitignore file, or you WILL lose data!
+#
  
-/UnityProject/UnityProject-csharp.sln
-/UnityProject/UnityProject.sln
-/UnityProject/UnityProject.userprefs
+# OS X only:
+.DS_Store
+*.swp
+*.Trashes
  
-/UnityProject/Project.userprefs
-/UnityProject/Assembly-CSharp.csproj
-/UnityProject/Assembly-CSharp.pidb
-/UnityProject/Assembly-CSharp-Editor.csproj
-/UnityProject/Assembly-CSharp-Editor.pidb
-/UnityProject/Assembly-CSharp-Editor-vs.csproj
-/UnityProject/Assembly-CSharp-firstpass.csproj
-/UnityProject/Assembly-CSharp-firstpass.pidb
-/UnityProject/Assembly-CSharp-firstpass-vs.csproj
-/UnityProject/Assembly-CSharp-vs.csproj
-/UnityProject/Assembly-UnityScript-firstpass.pidb
-/UnityProject/Assembly-UnityScript-firstpass.unityproj
-/UnityProject/Assembly-UnityScript-firstpass-vs.unityproj
-/UnityProject/Project.suo
-UnityProject/Library/ScriptMapper
-UnityProject/Library/ScriptMapper
-UnityProject/Library/assetDatabase3
-UnityProject/Library/expandedItems
-UnityProject/Library/guidmapper
-UnityProject/UnityProject-csharp.sln
-UnityProject/UnityProject.sln
+# All platforms:
+Library
+Temp
+*.csproj
+*.pidb
+*.unityproj
+*.sln
+*.userprefs
