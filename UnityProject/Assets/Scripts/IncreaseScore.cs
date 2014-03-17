@@ -10,10 +10,10 @@ public class IncreaseScore : MonoBehaviour {
 		{
 			hud = GameObject.Find("_ScoreHandler").GetComponent<HUDScript> ();
 			hud.IncreaseScore(1000);
+			Destroy (this.gameObject);
 
-			{
 				
-			}
+			
 		}
 	}
 }
