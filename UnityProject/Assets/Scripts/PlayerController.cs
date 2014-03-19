@@ -9,7 +9,12 @@ public class PlayerController : MonoBehaviour {
 	public bool lockX = false;
 	public bool lockY = false;
 	public bool lockZ = false;
-	public int currentLane = 0;
+	public float currentLane = 0;
+
+
+	//debounce variables;
+	[HideInInspector]
+	public bool dPressed, aPressed = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +22,7 @@ public class PlayerController : MonoBehaviour {
 	}
 		
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		Vector3 distanceToTarget = new Vector3 ();
 		if (!lockX) {
 			distanceToTarget.x = target.x - transform.position.x;
@@ -39,21 +44,33 @@ public class PlayerController : MonoBehaviour {
 			
 		// Set it
 		transform.position = distanceToTarget;
-			
 
 		if (Input.GetKeyDown (KeyCode.A)) {
 			if(currentLane != -2){
-			
-			currentLane = currentLane -1;
-			target = new Vector3(currentLane,0,0);
+				if(!aPressed){
+					aPressed = true;
+					currentLane--;
+					Debug.Log(currentLane);
+					target = new Vector3(currentLane,0,0);
+				}
 			}
 
 		}
 		if (Input.GetKeyDown (KeyCode.D)) {
 			if(currentLane != 2){
-			currentLane = currentLane +1;
-			target = new Vector3(currentLane,0,0);
+				if(!dPressed){
+					dPressed = true;
+					currentLane++;
+					target = new Vector3(currentLane,0,0);
+				}
 			}
+		}
+
+		if (Input.GetKeyUp (KeyCode.D)) {
+			dPressed = false;
+		}
+		if (Input.GetKeyUp (KeyCode.A)) {
+			aPressed = false;
 		}
 	}
 }	

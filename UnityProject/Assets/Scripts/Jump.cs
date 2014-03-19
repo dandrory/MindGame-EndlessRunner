@@ -16,26 +16,11 @@ public class Jump : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 temp = transform.position;
-				if (Input.GetKeyDown (KeyCode.W)) {
-						onFloor = false;
-				}
-				if (onFloor == false && Jumped == false) {
-			temp.y = temp.y + 0.2f;
-
-				}
-		if (temp.y >= 4) {
-			Jumped = true;
-				}
-		if (temp.y <= 0.2f) {
-			onFloor = true;
-			Jumped = false;
+		if (Input.GetKeyDown (KeyCode.W)) {
+			onFloor = false;
+			rigidbody.AddForce(Vector3.up * 15, ForceMode.Impulse);
 		}
-		if (Jumped == true && onFloor == false) {
-			temp.y = temp.y - 0.4f;		
+		if (onFloor == false && Jumped == false) {
 		}
-
-
-
-		transform.position = temp;
-		}
+	}
 }
