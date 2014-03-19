@@ -9,7 +9,7 @@ public class HUDScript : MonoBehaviour {
 		playerScore += Time.deltaTime;
 	}
 	
-	public void IncreaseScore(int amount)
+	public void IncreaseScore(float amount)
 	{ 
 		playerScore += amount;
 	}

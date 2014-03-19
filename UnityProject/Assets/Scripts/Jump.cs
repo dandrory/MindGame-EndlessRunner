@@ -4,7 +4,7 @@ using System.Collections;
 public class Jump : MonoBehaviour {
 
 
-	public bool Jumped = false;
+	public float jumpForce = 15;
 	public bool onFloor = true;
 
 
@@ -16,11 +16,16 @@ public class Jump : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 temp = transform.position;
-		if (Input.GetKeyDown (KeyCode.W)) {
+		if (Input.GetKeyDown (KeyCode.W) && onFloor) {
+			transform.position = new Vector3(transform.position.x, 0.2f, transform.position.z);
 			onFloor = false;
-			rigidbody.AddForce(Vector3.up * 15, ForceMode.Impulse);
+			rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 		}
-		if (onFloor == false && Jumped == false) {
+	}
+
+	void OnCollisionStay(Collision col){
+		if(col.gameObject.tag == "Floor"){
+			onFloor = true;
 		}
 	}
 }

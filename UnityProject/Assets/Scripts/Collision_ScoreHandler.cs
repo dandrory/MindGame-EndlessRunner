@@ -1,19 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class IncreaseScore : MonoBehaviour {
+public class Collision_ScoreHandler: MonoBehaviour {
 	HUDScript hud;
+	public float amount;
 	
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Player")
 		{
 			hud = GameObject.Find("_ScoreHandler").GetComponent<HUDScript> ();
-			hud.IncreaseScore(1000);
+			hud.IncreaseScore(amount);
 			Destroy (this.gameObject);
-
-				
-			
 		}
 	}
 }

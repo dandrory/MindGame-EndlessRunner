@@ -72,5 +72,6 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.A)) {
 			aPressed = false;
 		}
+		
 	}
 }	
