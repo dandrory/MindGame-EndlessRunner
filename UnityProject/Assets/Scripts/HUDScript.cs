@@ -4,9 +4,16 @@ using System.Collections;
 public class HUDScript : MonoBehaviour {
 	
 	float playerScore = 0;
+	float playerDistance = 0;
+	GameObject player;
+
+	void Start(){
+		player = GameObject.FindWithTag("Player");
+	}
 	
 	void Update (){
-		playerScore += Time.deltaTime;
+		playerScore += player.transform.position.z - (player.transform.position.z-1);
+		playerDistance = player.transform.position.z;
 	}
 	
 	public void IncreaseScore(float amount)
@@ -16,6 +23,7 @@ public class HUDScript : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		GUI.Label (new Rect(10, 10, 100, 30), "Score:" +(int) (playerScore * 100));
+		GUI.Label (new Rect(10, 10, 100, 30), "Score:\t" + playerScore );
+		GUI.Label (new Rect(10, 30, 1000, 30), "Distance:\t" +(int) playerDistance + " M" );
 	}
 }
